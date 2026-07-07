@@ -29,5 +29,5 @@ def get_me(access_token: str | None = Cookie(default=None)):
 @router.post("/logout", summary="로그아웃 - 쿠키 삭제")
 def logout():
     response = JSONResponse(content={"message": "로그아웃 완료"})
-    response.delete_cookie(key="access_token")
+    response.delete_cookie(key="access_token", samesite="none", secure=True)
     return response

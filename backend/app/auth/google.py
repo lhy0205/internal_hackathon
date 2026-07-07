@@ -56,7 +56,8 @@ async def google_callback(code: str, db: Session = Depends(get_db)):
         key="access_token",
         value=access_token,
         httponly=True,
-        samesite="lax",
+        samesite="none",
+        secure=True,
         max_age=settings.jwt_expire_minutes * 60,
     )
     return response
