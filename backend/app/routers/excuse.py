@@ -32,7 +32,6 @@ _QUEST_CATEGORY = {
 _GRADE_STARS = {"S": 5, "A": 4, "B": 3, "C": 2, "F": 1}
 
 
-# ── POST /api/excuses/summon ───────────────────────────────────────────────────
 @router.post(
     "/summon",
     response_model=SummonResponse,
@@ -63,7 +62,6 @@ def summon_excuses(body: SummonRequest):
     return SummonResponse(cards=cards)
 
 
-# ── GET /api/excuses/preview ───────────────────────────────────────────────────
 @router.get(
     "/preview",
     response_model=PreviewResponse,
@@ -83,7 +81,6 @@ def preview_excuse(tone: int, risk: int):
     )
 
 
-# ── GET /api/excuses/daily ─────────────────────────────────────────────────────
 @router.get(
     "/daily",
     response_model=DailyResponse,

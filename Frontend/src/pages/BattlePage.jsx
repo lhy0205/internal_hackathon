@@ -153,7 +153,6 @@ export default function BattlePage() {
 
   return (
     <PageLayout title="디펜스 배틀" subtitle={`BATTLE · TURN ${turn}/3 · 의심을 잠재워라`}>
-      {/* Mobile */}
       <div className="battle scanlines mobile-only">
         <h1 className="battle__title">디펜스 배틀</h1>
         {enemySection}
@@ -162,7 +161,6 @@ export default function BattlePage() {
         <BottomNav />
       </div>
 
-      {/* Desktop */}
       <div className="battle__desktop-grid desktop-only">
         <div className="battle__arena">
           {excuseBox}
@@ -185,7 +183,6 @@ export default function BattlePage() {
           {inputSection}
         </div>
 
-        {/* Battle Log */}
         <div className="battle__log">
           <div className="battle__log-header">BATTLE LOG</div>
           <div className="battle__log-body">

@@ -18,7 +18,6 @@ app = FastAPI(
     redoc_url="/redoc",
 )
 
-# CORS 설정
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
@@ -28,7 +27,6 @@ app.add_middleware(
     expose_headers=["*"],
 )
 
-# 라우터 등록
 app.include_router(google_auth.router)
 app.include_router(auth.router)
 app.include_router(excuse.router)

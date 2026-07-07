@@ -20,7 +20,6 @@ class SaveExcuseRequest(BaseModel):
     category: str | None = None
 
 
-# ── POST /api/library/save ──────────────────────────────────────────────────────
 @router.post("/save", summary="변명 카드 도감에 저장")
 def save_excuse(
     body: SaveExcuseRequest,
@@ -43,7 +42,6 @@ def save_excuse(
     return {"id": item.id, "message": "저장 완료"}
 
 
-# ── GET /api/library ────────────────────────────────────────────────────────────
 @router.get("", summary="변명 도감 목록 조회")
 def get_library(
     category: str = "전체",
@@ -73,7 +71,6 @@ def get_library(
     }
 
 
-# ── GET /api/library/stats ──────────────────────────────────────────────────────
 @router.get("/stats", summary="변명 도감 수집 통계")
 def get_library_stats(
     db: Session = Depends(get_db),
@@ -83,7 +80,6 @@ def get_library_stats(
     return {"collected": collected, "total": 60}
 
 
-# ── GET /api/library/{id} ───────────────────────────────────────────────────────
 @router.get("/{item_id}", summary="변명 카드 상세 조회")
 def get_library_item(
     item_id: int,

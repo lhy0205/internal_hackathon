@@ -135,7 +135,6 @@ export default function SummonResultPage() {
 
   return (
     <PageLayout title="변명 소환 결과" subtitle="SUMMONED · 3장의 변명 카드를 획득했다">
-      {/* Mobile */}
       <div className="summon-result scanlines mobile-only">
         <h1 className="summon-result__title">소환된 변명</h1>
         {!loading && !error && <p className="summon-result__count">3장 중 {currentIdx + 1}번째</p>}
@@ -153,7 +152,6 @@ export default function SummonResultPage() {
         <BottomNav />
       </div>
 
-      {/* Desktop */}
       <div className="summon-result desktop-only">
         <div className="summon-result__desktop-info">
           <h2 className="summon-result__title" style={{ fontFamily: 'var(--font-pixel)', fontSize: 14, color: 'var(--pink)' }}>획득한 변명 카드</h2>

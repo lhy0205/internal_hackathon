@@ -66,7 +66,6 @@ export default function VictoryPage() {
         </div>
       )}
 
-      {/* 유형 분석 카드 - 성공 시에만 표시 */}
       {isVictory && defenseType && (
         <div className="defense-type-card">
           <div className="defense-type-card__header">

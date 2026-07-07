@@ -1,6 +1,5 @@
 import { api } from './client';
 
-// ── 변명 도감 ──────────────────────────────────────────
 export function fetchLibrary(filter = '전체') {
   const params = filter !== '전체' ? `?category=${encodeURIComponent(filter)}` : '';
   return api
@@ -37,7 +36,6 @@ export function fetchLibraryItem(id) {
     }));
 }
 
-// ── 디펜스 도감 ───────────────────────────────────────
 export function fetchBattleLibrary() {
   return api
     .get('/battle-library')

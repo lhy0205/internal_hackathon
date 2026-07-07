@@ -17,7 +17,6 @@ class Base(DeclarativeBase):
 
 
 def get_db():
-    """FastAPI dependency: DB 세션을 요청마다 생성하고 종료 후 닫음"""
     db = SessionLocal()
     try:
         yield db

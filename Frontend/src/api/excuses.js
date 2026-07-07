@@ -34,7 +34,6 @@ export function fetchDailyQuote() {
   return api.get('/excuses/daily');
 }
 
-// 변명 카드를 변명 도감에 저장 (card 객체 전체를 전달)
 export function saveToLibrary(card) {
   return api.post('/library/save', {
     rank: card.rank,

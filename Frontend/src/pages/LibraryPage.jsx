@@ -16,7 +16,6 @@ const FILTERS = [
 const RANK_COLORS = { F: 'var(--red)', A: 'var(--purple)', S: 'var(--gold)', B: 'var(--cyan)', C: 'var(--lime)' };
 const RANK_LABELS = { F: '다컬 파문', A: '명작', S: '전설', B: '양작', C: '범작' };
 
-// ── 변명 카드 상세 모달 ──────────────────────────────────────────────────────────
 function CardDetailModal({ itemId, onClose }) {
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -71,7 +70,6 @@ function CardDetailModal({ itemId, onClose }) {
   );
 }
 
-// ── 변명 도감 카드 ────────────────────────────────────────────────────────────────
 function LibraryCard({ item, onClick }) {
   if (!item.text) {
     return (
@@ -94,7 +92,6 @@ function LibraryCard({ item, onClick }) {
   );
 }
 
-// ── 디펜스 도감 카드 ───────────────────────────────────────────────────────────────
 function BattleCard({ item }) {
   const [open, setOpen] = useState(false);
   return (
@@ -131,9 +128,8 @@ function BattleCard({ item }) {
   );
 }
 
-// ── 메인 페이지 ───────────────────────────────────────────────────────────────────
 export default function LibraryPage() {
-  const [tab, setTab] = useState('excuse');      // 'excuse' | 'battle'
+  const [tab, setTab] = useState('excuse');
   const [activeFilter, setActiveFilter] = useState('전체');
   const [items, setItems] = useState([]);
   const [battleItems, setBattleItems] = useState([]);
@@ -199,7 +195,6 @@ export default function LibraryPage() {
     <PageLayout title="변명 도감" subtitle="COLLECTION · 수집한 변명과 배틀 기록">
       {selectedId && <CardDetailModal itemId={selectedId} onClose={() => setSelectedId(null)} />}
 
-      {/* Mobile */}
       <div className="library scanlines mobile-only">
         <div className="quest-select__header"><Hearts filled={2} total={3} /><CoinBadge amount={1240} /></div>
         <h1 className="library__title">도감</h1>
@@ -222,7 +217,6 @@ export default function LibraryPage() {
         <BottomNav />
       </div>
 
-      {/* Desktop */}
       <div className="library__desktop-grid desktop-only">
         <div className="library__filter-panel">
           {tabBar}

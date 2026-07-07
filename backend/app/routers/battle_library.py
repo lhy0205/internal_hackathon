@@ -18,7 +18,6 @@ class SaveBattleRequest(BaseModel):
     defense_type_reason: str | None = None
 
 
-# ── POST /api/battle-library/save ──────────────────────────────────────────────
 @router.post("/save", summary="배틀 결과 디펜스 도감에 저장")
 def save_battle(
     body: SaveBattleRequest,
@@ -40,7 +39,6 @@ def save_battle(
     return {"id": item.id, "message": "저장 완료"}
 
 
-# ── GET /api/battle-library ─────────────────────────────────────────────────────
 @router.get("", summary="디펜스 도감 목록 조회")
 def get_battle_library(
     db: Session = Depends(get_db),

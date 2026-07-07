@@ -14,7 +14,6 @@ from app.ai.prompt import (
 
 
 def _parse_json(response_text: str) -> Any:
-    """GPT 응답에서 JSON 추출 (코드블록 제거 후 파싱)"""
     text = response_text.strip()
     if text.startswith("```json"):
         text = text[7:]

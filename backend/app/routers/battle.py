@@ -20,7 +20,6 @@ _ai = GPTClient(api_key=settings.gpt_api_key)
 MAX_TURNS = 3
 
 
-# ── POST /api/battle/start ─────────────────────────────────────────────────────
 @router.post(
     "/start",
     response_model=BattleStartResponse,
@@ -50,7 +49,6 @@ def start_battle(body: BattleStartRequest):
     )
 
 
-# ── POST /api/battle/{battle_id}/turn ──────────────────────────────────────────
 @router.post(
     "/{battle_id}/turn",
     response_model=BattleTurnResponse,
@@ -80,10 +78,8 @@ def submit_turn(battle_id: str, body: BattleTurnRequest):
     history: list = battle["conversation_history"]
     attempt_num: int = battle["attempt_num"] + 1
 
-    # 이전 상대 반응 (없으면 빈 문자열)
     prev_opponent_reaction: str = history[-1]["opponent"] if history else ""
 
-    # GPT: 상대 반응 생성
     enemy_reaction: str = _ai.generate_defense_reaction(
         original_excuse=original_excuse,
         opponent_reaction=prev_opponent_reaction,
@@ -91,17 +87,14 @@ def submit_turn(battle_id: str, body: BattleTurnRequest):
         attempt_num=attempt_num,
     )
 
-    # 이번 턴까지 포함한 임시 히스토리
     updated_history = history + [{"user": body.user_input, "opponent": enemy_reaction}]
 
-    # GPT: 새 의심도 측정
     suspicion_result = _ai.measure_suspicion(
         original_excuse=original_excuse,
         conversation_history=updated_history,
     )
     new_suspicion: int = suspicion_result["suspicion"]
 
-    # 스토리지 / 세션 업데이트
     battle_storage.update_battle_turn(battle_id, body.user_input, enemy_reaction, new_suspicion)
     session.turn += 1
     session.suspicion = new_suspicion
@@ -109,7 +102,6 @@ def submit_turn(battle_id: str, body: BattleTurnRequest):
     is_final: bool = (session.turn >= MAX_TURNS) or (new_suspicion <= 0)
     success = (new_suspicion <= 60) if is_final else None
 
-    # 다음 턴 적 대사 (마지막 턴이면 없음)
     enemy_line: str | None = None
     if not is_final:
         enemy_line = _ai.generate_enemy_line(
@@ -117,7 +109,6 @@ def submit_turn(battle_id: str, body: BattleTurnRequest):
             attempt_num=attempt_num + 1,
         )
 
-    # 성공 시 디펜스 유형 분석
     defense_type: DefenseType | None = None
     if success:
         try:
