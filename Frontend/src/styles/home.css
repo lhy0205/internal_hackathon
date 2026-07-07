@@ -1,0 +1,123 @@
+/* ============================================
+   01 - Home / Start Page
+   ============================================ */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.home__subtitle {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+
+.home__title {
+  margin-top: 40px;
+}
+
+.home__title-kr {
+  font-family: var(--font-pixel);
+  font-size: 42px;
+  color: var(--purple);
+  display: block;
+}
+
+.home__title-en {
+  font-family: var(--font-pixel);
+  font-size: 42px;
+  color: var(--pink);
+  display: block;
+  margin-top: 16px;
+}
+
+.home__tagline {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-top: 24px;
+}
+
+.home__desc {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+/* Diamond Gem */
+.home__gem {
+  position: relative;
+  margin: 40px 0;
+}
+
+.home__gem-shape {
+  width: 92px;
+  height: 116px;
+  position: relative;
+}
+
+.home__gem-shape svg {
+  width: 100%;
+  height: 100%;
+}
+
+.home__gem-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
+  border: 1px solid var(--cyan);
+  opacity: 0.25;
+}
+
+.home__start-btn {
+  width: 280px;
+  margin-top: 20px;
+}
+
+.home__login-hint {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 24px;
+}
+
+.home__press-start {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--lime);
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .home__title-kr,
+  .home__title-en {
+    font-size: 64px;
+  }
+
+  .home__start-btn {
+    width: 360px;
+  }
+}

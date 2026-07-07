@@ -1,0 +1,183 @@
+/* ============================================
+   08 - Share Card Page
+   ============================================ */
+
+.share {
+  padding: 40px 20px 160px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.share__title {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+/* Trading Card */
+.trading-card {
+  background: var(--bg-secondary);
+  border: 3px solid var(--red);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: left;
+  position: relative;
+}
+
+.trading-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 5px;
+  left: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  z-index: -1;
+}
+
+.trading-card__holo {
+  padding: 16px;
+  background: linear-gradient(135deg, #a855f7, #f43f8e, #22d3ee);
+  text-align: center;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+.trading-card__holo-title {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: #15131f;
+}
+
+.trading-card__holo-sub {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: #15131f;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.trading-card__rank-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.trading-card__rank {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+}
+
+.trading-card__excuse-text {
+  padding: 8px 16px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.trading-card__footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.trading-card__meta {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+.trading-card__result {
+  font-size: 11px;
+  color: var(--green);
+}
+
+.trading-card__hashtag {
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--cyan);
+  font-weight: 500;
+  margin-top: 8px;
+  padding-right: 16px;
+  padding-bottom: 12px;
+}
+
+/* Share Destinations */
+.share__where {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  margin: 24px 0 12px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.share__destinations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  max-width: 320px;
+  margin: 0 auto 24px;
+}
+
+.share__dest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 8px;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.share__dest--pink {
+  background: #49122a;
+  color: var(--pink);
+  border: 1.5px solid var(--pink);
+}
+
+.share__dest--gold {
+  background: var(--gold-bg);
+  color: var(--gold);
+  border: 1.5px solid var(--gold);
+}
+
+.share__dest--cyan {
+  background: #0a3f47;
+  color: var(--cyan);
+  border: 1.5px solid var(--cyan);
+}
+
+.share__dest--lime {
+  background: #30450f;
+  color: var(--lime);
+  border: 1.5px solid var(--lime);
+}
+
+.share__dest-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+}
+
+.share__save-btn {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.share__hint {
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-top: 16px;
+}

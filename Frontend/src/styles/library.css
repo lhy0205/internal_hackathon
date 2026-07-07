@@ -1,0 +1,119 @@
+/* ============================================
+   07 - Library (도감) Page
+   ============================================ */
+
+.library {
+  padding: 40px 20px 160px;
+  min-height: 100vh;
+}
+
+.library__title {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.library__progress-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--lime);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.library__progress-bar {
+  margin-bottom: 16px;
+}
+
+/* Filter Chips */
+.library__filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* Grid */
+.library__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Library Card */
+.lib-card {
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.lib-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 3px;
+  left: 3px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.lib-card__header {
+  padding: 6px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.lib-card__rank {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+}
+
+.lib-card__header--red { background: var(--red-bg); color: var(--red); }
+.lib-card__header--purple { background: #432262; color: var(--purple); }
+.lib-card__header--gold { background: #644c0e; color: var(--gold); }
+.lib-card__header--cyan { background: #0d545f; color: var(--cyan); }
+.lib-card__header--lime { background: #415c15; color: var(--lime); }
+.lib-card__header--locked { background: #171423; color: var(--border); }
+
+.lib-card__body {
+  padding: 10px;
+}
+
+.lib-card__stars {
+  margin-bottom: 8px;
+}
+
+.lib-card__text {
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Locked Card */
+.lib-card--locked {
+  border: 2px solid var(--border);
+}
+
+.lib-card--locked .lib-card__body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+}
+
+.lib-card__lock-icon {
+  font-family: var(--font-pixel);
+  font-size: 30px;
+  color: var(--border);
+}

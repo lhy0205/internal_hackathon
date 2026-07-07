@@ -1,0 +1,180 @@
+/* ============================================
+   04 - Summon Result Page
+   ============================================ */
+
+.summon-result {
+  padding: 40px 20px 160px;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.summon-result__title {
+  font-family: var(--font-pixel);
+  font-size: 16px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.summon-result__count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Excuse Card */
+.excuse-card {
+  background: var(--bg-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+  margin: 0 auto;
+  max-width: 340px;
+}
+
+.excuse-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 5px;
+  left: 5px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.excuse-card__rank-bar {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  color: #15131f;
+}
+
+.excuse-card__rank-bar--F { background: var(--red); }
+.excuse-card__rank-bar--A { background: var(--purple); }
+.excuse-card__rank-bar--S { background: var(--gold); }
+.excuse-card__rank-bar--B { background: var(--cyan); }
+.excuse-card__rank-bar--C { background: var(--lime); }
+
+.excuse-card__stars-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px 0;
+}
+
+.excuse-card__code {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.excuse-card__body {
+  padding: 12px 16px;
+}
+
+.excuse-card__text-box {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 20px 16px;
+  margin-bottom: 16px;
+}
+
+.excuse-card__text {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* Reaction & Tip */
+.excuse-card__info-row {
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.excuse-card__info-row--reaction {
+  background: #32194a;
+}
+
+.excuse-card__info-row--tip {
+  background: var(--gold-bg);
+}
+
+.excuse-card__info-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.excuse-card__info-label--purple { color: var(--purple); }
+.excuse-card__info-label--gold { color: var(--gold); }
+
+.excuse-card__info-text {
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+/* Action Buttons */
+.excuse-card__actions {
+  display: flex;
+  gap: 8px;
+  padding: 16px;
+}
+
+.excuse-card__action-btn {
+  flex: 1;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.excuse-card__action-btn--copy {
+  background: #0a3f47;
+  color: var(--cyan);
+  border: 1.5px solid var(--cyan);
+}
+
+.excuse-card__action-btn--save {
+  background: #30450f;
+  color: var(--lime);
+  border: 1.5px solid var(--lime);
+}
+
+.excuse-card__action-btn--share {
+  background: #49122a;
+  color: var(--pink);
+  border: 1.5px solid var(--pink);
+}
+
+/* Pagination Dots */
+.summon-result__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0;
+}
+
+.summon-result__dot {
+  width: 10px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--border);
+}
+
+.summon-result__dot--active {
+  background: var(--pink);
+}
+
+.summon-result__submit {
+  max-width: 340px;
+  margin: 0 auto;
+}

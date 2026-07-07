@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+.vite/
+
+# Environment (NEVER commit)
+.env
+.env.local
+*.env
+
+# DB files
+*.db
+*.sqlite3
+
+# Build / temp
+*.log
+.DS_Store
+.claude/

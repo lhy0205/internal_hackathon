@@ -1,0 +1,264 @@
+/* ============================================
+   03 - Skill Tune Page
+   ============================================ */
+
+.skill-tune {
+  padding: 40px 20px 160px;
+  min-height: 100vh;
+}
+
+.skill-tune__title {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.skill-tune__subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.skill-tune__quest-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--purple-bg);
+  border: 1.5px solid var(--purple);
+  border-radius: 4px;
+  margin-bottom: 32px;
+}
+
+.skill-tune__quest-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--purple);
+  fill: none;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.skill-tune__quest-badge span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--purple);
+  font-weight: 500;
+}
+
+/* Skill Slider Section */
+.skill-section {
+  margin-bottom: 28px;
+}
+
+.skill-section__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.skill-section__name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skill-section__level {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.skill-section__labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.skill-section__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-secondary);
+}
+
+/* Range Slider */
+.skill-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 14px;
+  background: transparent;
+  cursor: pointer;
+  margin: 4px 0;
+}
+
+.skill-slider::-webkit-slider-track {
+  height: 14px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+}
+
+.skill-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--text-primary);
+  border: 2px solid var(--cyan);
+  border-radius: 2px;
+  margin-top: -3px;
+}
+
+/* Preview Card */
+.skill-preview {
+  background: var(--bg-secondary);
+  border: 2px solid var(--gold);
+  margin-top: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-preview::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.skill-preview__header {
+  background: var(--gold-dark);
+  padding: 8px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skill-preview__title {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.skill-preview__cost {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.skill-preview__body {
+  padding: 20px 14px;
+}
+
+.skill-preview__text {
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  animation: fadeSwap 0.3s ease;
+}
+
+@keyframes fadeSwap {
+  0% { opacity: 0; transform: translateY(6px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.skill-preview__grade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.skill-preview__grade-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.skill-preview__grade-value {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+}
+
+/* Situation Input */
+.situation-input {
+  margin-bottom: 28px;
+}
+
+.situation-input__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.situation-input__label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.situation-input__count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.situation-input__field {
+  width: 100%;
+  min-height: 100px;
+  padding: 14px;
+  background: var(--bg-tertiary);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.6;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.situation-input__field::placeholder {
+  color: var(--text-dim);
+}
+
+.situation-input__field:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.15);
+}
+
+.situation-input__hints {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.situation-input__hint-chip {
+  padding: 4px 10px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.situation-input__hint-chip:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+.skill-tune__submit {
+  margin-top: 24px;
+}

@@ -1,0 +1,154 @@
+/* ============================================
+   02 - Quest Select Page
+   ============================================ */
+
+.quest-select {
+  padding: 40px 20px 160px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.quest-select__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.quest-select__title {
+  font-family: var(--font-pixel);
+  font-size: 20px;
+  color: var(--text-primary);
+}
+
+.quest-select__subtitle {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* Quest Card */
+.quest-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 16px;
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  margin-bottom: 8px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.quest-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.quest-card--selected {
+  border-color: var(--purple);
+  border-width: 2.5px;
+  border-left: 5px solid var(--purple);
+}
+
+.quest-card__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.quest-card__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.4;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.quest-card__icon--cyan {
+  background: var(--cyan-dark);
+  border: 1.5px solid var(--cyan);
+}
+.quest-card__icon--cyan svg { stroke: var(--cyan); }
+
+.quest-card__icon--purple {
+  background: var(--purple-bg);
+  border: 1.5px solid var(--purple);
+}
+.quest-card__icon--purple svg { stroke: var(--purple); }
+
+.quest-card__icon--gold {
+  background: var(--gold-dark);
+  border: 1.5px solid var(--gold);
+}
+.quest-card__icon--gold svg { stroke: var(--gold); }
+
+.quest-card__icon--lime {
+  background: var(--lime-dark);
+  border: 1.5px solid var(--lime);
+}
+.quest-card__icon--lime svg { stroke: var(--lime); }
+
+.quest-card__icon--pink {
+  background: var(--pink-bg);
+  border: 1.5px solid var(--pink);
+}
+.quest-card__icon--pink svg { stroke: var(--pink); }
+
+.quest-card__info {
+  flex: 1;
+}
+
+.quest-card__name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.quest-card__desc {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.quest-card__meta {
+  text-align: right;
+}
+
+.quest-card__difficulty {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+
+.quest-card__difficulty-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--text-secondary);
+}
+
+.quest-card__select-badge {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  background: var(--purple);
+  padding: 2px 12px;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: #15131f;
+}
+
+.quest-select__submit {
+  margin-top: 24px;
+}

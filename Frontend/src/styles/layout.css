@@ -1,0 +1,306 @@
+/* ============================================
+   Desktop Layout - Sidebar + Header
+   ============================================ */
+
+/* ── Page Layout Wrapper ── */
+.page-layout {
+  min-height: 100vh;
+}
+
+/* ── Sidebar (desktop only) ── */
+.sidebar {
+  display: none;
+}
+
+/* ── Desktop Header (desktop only) ── */
+.desktop-header {
+  display: none;
+}
+
+/* ── Mobile: hide desktop-only ── */
+.desktop-only {
+  display: none;
+}
+
+/* ===== Desktop (1024px+) ===== */
+@media (min-width: 1024px) {
+  .page-layout {
+    display: flex;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 232px;
+    min-height: 100vh;
+    background: var(--bg-secondary);
+    border-right: 2px solid rgba(168, 85, 247, 0.5);
+    padding: 24px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 200;
+  }
+
+  .sidebar__logo {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .sidebar__logo-kr {
+    font-family: var(--font-pixel);
+    font-size: 24px;
+    color: var(--purple);
+  }
+
+  .sidebar__logo-en {
+    font-family: var(--font-pixel);
+    font-size: 24px;
+    color: var(--pink);
+  }
+
+  .sidebar__tagline {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-secondary);
+    letter-spacing: 0.15em;
+    margin-bottom: 24px;
+  }
+
+  /* Profile Card */
+  .sidebar__profile {
+    background: var(--bg-tertiary);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .sidebar__avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--purple-dark);
+    border: 2px solid var(--purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .sidebar__avatar svg {
+    width: 22px;
+    height: 22px;
+    stroke: var(--purple);
+    fill: none;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .sidebar__user-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sidebar__user-name {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .sidebar__user-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-top: 2px;
+  }
+
+  .sidebar__user-xp {
+    width: 100%;
+    height: 7px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+  }
+
+  .sidebar__user-xp-fill {
+    height: 100%;
+    width: 60%;
+    background: var(--lime);
+    border-radius: 3px;
+  }
+
+  /* Nav Items */
+  .sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  .sidebar__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-align: left;
+    width: 100%;
+  }
+
+  .sidebar__nav-item:hover {
+    background: rgba(168, 85, 247, 0.08);
+  }
+
+  .sidebar__nav-item--active {
+    background: var(--cyan-dark);
+    border: 1.5px solid var(--cyan);
+  }
+
+  .sidebar__nav-item--active .sidebar__nav-dot {
+    background: var(--cyan);
+  }
+
+  .sidebar__nav-item--active .sidebar__nav-label {
+    color: var(--text-primary);
+    font-weight: 700;
+  }
+
+  .sidebar__nav-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    flex-shrink: 0;
+  }
+
+  .sidebar__nav-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Coin Box */
+  .sidebar__coin {
+    background: var(--bg-tertiary);
+    border: 1.3px solid var(--gold);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: auto;
+  }
+
+  .sidebar__coin-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-pixel);
+    font-size: 12px;
+    color: #15131f;
+    flex-shrink: 0;
+  }
+
+  .sidebar__coin-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar__coin-label {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    color: var(--text-secondary);
+  }
+
+  .sidebar__coin-amount {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  /* ── Main Content Area ── */
+  .page-layout__main {
+    flex: 1;
+    margin-left: 232px;
+    min-height: 100vh;
+  }
+
+  /* ── Desktop Header ── */
+  .desktop-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    padding: 0 36px;
+    background: rgba(31, 27, 48, 0.6);
+    border-bottom: 1.5px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+  }
+
+  .desktop-header__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .desktop-header__title {
+    font-family: var(--font-pixel);
+    font-size: 20px;
+    color: var(--text-primary);
+  }
+
+  .desktop-header__subtitle {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--cyan);
+    letter-spacing: 0.05em;
+  }
+
+  .desktop-header__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .desktop-header__settings {
+    padding: 6px 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+
+  /* ── Desktop Content Padding ── */
+  .page-layout__content {
+    padding: 32px 36px 48px;
+  }
+
+  /* Toggle mobile/desktop elements */
+  .mobile-only {
+    display: none !important;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+}

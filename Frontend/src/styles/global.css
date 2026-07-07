@@ -1,0 +1,115 @@
+/* ============================================
+   Global Styles - 변명 RPG
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ── Scanline Overlay ── */
+.scanlines::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.08) 3px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ── Glow Effect ── */
+.glow-purple {
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.4));
+}
+
+.glow-pink {
+  filter: drop-shadow(0 0 8px rgba(244, 63, 142, 0.4));
+}
+
+.glow-cyan {
+  filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.4));
+}
+
+/* ── Pixel Font Utility ── */
+.font-pixel {
+  font-family: var(--font-pixel);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ── Ambient Blobs ── */
+.ambient-blob {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-blob--purple {
+  background: var(--purple);
+  opacity: 0.08;
+}
+
+.ambient-blob--cyan {
+  background: var(--cyan);
+  opacity: 0.06;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+/* ── App Container ── */
+#root {
+  min-height: 100vh;
+}

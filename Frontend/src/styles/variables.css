@@ -1,0 +1,68 @@
+/* ============================================
+   Design Tokens - 변명 RPG
+   ============================================ */
+
+:root {
+  /* ── Background Colors ── */
+  --bg-primary: #15131f;
+  --bg-secondary: #1f1b30;
+  --bg-tertiary: #2a2440;
+  --bg-overlay: #0c0a14;
+
+  /* ── Accent Colors ── */
+  --purple: #a855f7;
+  --purple-dark: #542a7b;
+  --purple-bg: #3a1d56;
+  --purple-deep: #643394;
+
+  --pink: #f43f8e;
+  --pink-dark: #922555;
+  --pink-bg: #551631;
+  --pink-glow: #ff51b8;
+
+  --cyan: #22d3ee;
+  --cyan-dark: #0b4953;
+  --cyan-glow: #28fdff;
+
+  --gold: #fbbf24;
+  --gold-dark: #57420c;
+  --gold-bg: #4b390a;
+
+  --lime: #a3e635;
+  --lime-dark: #395012;
+
+  --red: #fb5e5e;
+  --red-dark: #963838;
+  --red-bg: #642525;
+
+  --green: #34d399;
+  --green-dark: #0f3f2d;
+
+  /* ── Text Colors ── */
+  --text-primary: #f4f1ff;
+  --text-secondary: #9b93c4;
+  --text-dim: #3a3358;
+
+  /* ── Border Colors ── */
+  --border: #3a3358;
+  --border-light: #362e53;
+
+  /* ── Font Families ── */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Noto Sans KR', sans-serif;
+
+  /* ── Spacing ── */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+
+  /* ── Border Radius ── */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+}

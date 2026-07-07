@@ -1,0 +1,275 @@
+/* ============================================
+   Reusable Component Styles
+   ============================================ */
+
+/* ── Primary Action Button ── */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  background: var(--pink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border: 1.5px solid var(--pink-glow);
+  position: relative;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: auto;
+  height: 4px;
+  background: var(--pink-dark);
+  z-index: -1;
+  transform: translateY(4px);
+}
+
+.btn-primary--purple {
+  background: var(--purple);
+  border-color: #da6eff;
+}
+
+.btn-primary--purple::after {
+  background: var(--purple-deep);
+}
+
+.btn-primary--red {
+  background: var(--red);
+  border-color: #ff7a7a;
+}
+
+.btn-primary--red::after {
+  background: var(--red-dark);
+}
+
+.btn-primary--gold {
+  background: var(--gold);
+  border-color: #fff82e;
+  color: #15131f;
+}
+
+.btn-primary--gold::after {
+  background: #967215;
+}
+
+/* ── Secondary Button ── */
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 52px;
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 700;
+  border: 1.5px solid var(--border-light);
+  position: relative;
+}
+
+.btn-secondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: auto;
+  height: 4px;
+  background: #191526;
+  z-index: -1;
+  transform: translateY(4px);
+}
+
+/* ── Star Rating ── */
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.star-rating__star {
+  width: 14px;
+  height: 14px;
+}
+
+.star-rating__star--filled {
+  color: var(--gold);
+}
+
+.star-rating__star--empty {
+  color: var(--border);
+}
+
+/* ── Progress Bar ── */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-bar__fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.progress-bar__fill--red { background: var(--red); }
+.progress-bar__fill--cyan { background: var(--cyan); }
+.progress-bar__fill--lime { background: var(--lime); }
+.progress-bar__fill--purple { background: var(--purple); }
+.progress-bar__fill--gold { background: var(--gold); }
+
+/* ── Skill Level Bar ── */
+.level-bar {
+  display: flex;
+  gap: 3px;
+}
+
+.level-bar__segment {
+  width: 100%;
+  height: 14px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  background: var(--bg-tertiary);
+}
+
+.level-bar__segment--filled-cyan {
+  background: var(--cyan);
+  border-color: var(--cyan-glow);
+}
+
+.level-bar__segment--filled-red {
+  background: var(--red);
+  border-color: #ff7070;
+}
+
+/* ── Coin Badge ── */
+.coin-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.coin-badge__icon {
+  width: 18px;
+  height: 18px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: #15131f;
+}
+
+.coin-badge__amount {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+/* ── Hearts ── */
+.hearts {
+  display: flex;
+  gap: 4px;
+}
+
+.heart {
+  font-size: 12px;
+  color: var(--pink);
+}
+
+.heart--empty {
+  color: var(--border);
+}
+
+/* ── Card Base ── */
+.card {
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.card--shadow {
+  position: relative;
+}
+
+.card--shadow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  top: 4px;
+  left: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: var(--radius-md);
+  z-index: -1;
+}
+
+/* ── Tag/Badge ── */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.tag--pink {
+  background: var(--pink-bg);
+  color: var(--pink);
+  border: 1px solid var(--pink);
+}
+
+.tag--cyan {
+  background: var(--cyan-dark);
+  color: var(--cyan);
+  border: 1px solid var(--cyan);
+}
+
+.tag--lime {
+  background: var(--lime-dark);
+  color: var(--lime);
+  border: 1px solid var(--lime);
+}
+
+/* ── Section Divider ── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  width: 100%;
+}
+
+/* ── Chip Filter ── */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 13px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--text-secondary);
+  cursor: pointer;
+}
+
+.chip--active {
+  background: var(--cyan-dark);
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
