@@ -1,12 +1,21 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import PageLayout from '../components/layout/PageLayout';
 import BottomNav from '../components/common/BottomNav';
 import StarRating from '../components/common/StarRating';
 import { shareExcuse } from '../api/user';
 import '../styles/share.css';
 
+const RANK_COLORS = { F: 'var(--red)', A: 'var(--purple)', S: 'var(--gold)', B: 'var(--cyan)', C: 'var(--lime)' };
+
 export default function SharePage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const card = location.state?.card;
+
+  const rank = card?.rank || 'F';
+  const stars = card?.stars || 1;
+  const text = card?.text || '변명을 선택해주세요';
+  const reaction = card?.reaction || '';
 
   const handleShare = (platform) => {
     shareExcuse({ excuseId: null, platform })
@@ -19,7 +28,6 @@ export default function SharePage() {
     <div className="share scanlines">
       <h1 className="share__title">전리품 공유</h1>
 
-      {/* Trading Card */}
       <div className="trading-card">
         <div className="trading-card__holo">
           <div className="trading-card__holo-title">변명 RPG</div>
@@ -27,23 +35,22 @@ export default function SharePage() {
         </div>
 
         <div className="trading-card__rank-row">
-          <span className="trading-card__rank" style={{ color: 'var(--red)' }}>F RANK</span>
-          <StarRating filled={1} total={5} size={12} />
+          <span className="trading-card__rank" style={{ color: RANK_COLORS[rank] }}>{rank} RANK</span>
+          <StarRating filled={stars} total={5} size={12} />
         </div>
 
         <div className="trading-card__excuse-text">
-          "갑자기 몸이 기어이 올라와서 오늘은 도저히 못 나가겠어"
+          "{text}"
         </div>
 
         <div className="trading-card__footer">
-          <p className="trading-card__meta">적 반응: 너 사진 봤는데?</p>
-          <p className="trading-card__result">디펜스: 성공 ★★★</p>
+          {reaction && <p className="trading-card__meta">적 반응: {reaction}</p>}
+          <p className="trading-card__result">#변명RPG</p>
         </div>
 
-        <div className="trading-card__hashtag">#변명RPG</div>
+        <div className="trading-card__hashtag">#변명RPG #GuildOfExcuses</div>
       </div>
 
-      {/* Share Destinations */}
       <p className="share__where">어디로 소환할까?</p>
       <div className="share__destinations">
         <button className="share__dest share__dest--pink" onClick={() => handleShare('스토리')}>

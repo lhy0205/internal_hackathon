@@ -10,7 +10,7 @@ router = APIRouter(prefix="/api/battle-library", tags=["BattleLibrary"])
 
 
 class SaveBattleRequest(BaseModel):
-    excuse_text: str
+    excuse_text: str | None = None
     success: bool
     suspicion: int
     turns: int

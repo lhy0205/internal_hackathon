@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PageLayout from '../components/layout/PageLayout';
 import BottomNav from '../components/common/BottomNav';
@@ -81,6 +81,7 @@ function ExcuseCard({ card, onShare, onSave, saveState, selected, onSelect }) {
 export default function SummonResultPage() {
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const touchStartX = useRef(null);
   const [cards, setCards] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -137,8 +138,44 @@ export default function SummonResultPage() {
     <PageLayout title="변명 소환 결과" subtitle="SUMMONED · 3장의 변명 카드를 획득했다">
       <div className="summon-result scanlines mobile-only">
         <h1 className="summon-result__title">소환된 변명</h1>
-        {!loading && !error && <p className="summon-result__count">3장 중 {currentIdx + 1}번째</p>}
-        {cardArea(currentIdx)}
+        {!loading && !error && (
+          <p className="summon-result__count">{currentIdx + 1} / {cards.length}</p>
+        )}
+        <div
+          style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 8 }}
+          onTouchStart={(e) => { touchStartX.current = e.touches[0].clientX; }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            if (dx < -50 && currentIdx < cards.length - 1) setCurrentIdx((i) => i + 1);
+            if (dx > 50 && currentIdx > 0) setCurrentIdx((i) => i - 1);
+            touchStartX.current = null;
+          }}
+        >
+          <button
+            onClick={() => setCurrentIdx((i) => Math.max(0, i - 1))}
+            disabled={loading || currentIdx === 0}
+            style={{
+              flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
+              background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+              color: currentIdx === 0 ? 'var(--text-secondary)' : 'var(--cyan)',
+              fontSize: 16, cursor: currentIdx === 0 ? 'default' : 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >‹</button>
+          <div style={{ flex: 1 }}>{cardArea(currentIdx)}</div>
+          <button
+            onClick={() => setCurrentIdx((i) => Math.min(cards.length - 1, i + 1))}
+            disabled={loading || currentIdx === cards.length - 1}
+            style={{
+              flexShrink: 0, width: 32, height: 32, borderRadius: '50%',
+              background: 'var(--bg-secondary)', border: '1px solid var(--border)',
+              color: currentIdx === cards.length - 1 ? 'var(--text-secondary)' : 'var(--cyan)',
+              fontSize: 16, cursor: currentIdx === cards.length - 1 ? 'default' : 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+            }}
+          >›</button>
+        </div>
         {!loading && !error && (
           <div className="summon-result__dots">
             {cards.map((_, i) => (
