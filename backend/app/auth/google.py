@@ -51,16 +51,7 @@ async def google_callback(code: str, db: Session = Depends(get_db)):
         raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(e))
 
     access_token = create_access_token(member)
-    response = RedirectResponse(url=settings.frontend_url)
-    response.set_cookie(
-        key="access_token",
-        value=access_token,
-        httponly=True,
-        samesite="none",
-        secure=True,
-        max_age=settings.jwt_expire_minutes * 60,
-    )
-    return response
+    return RedirectResponse(url=f"{settings.frontend_url}?token={access_token}")
 
 
 async def _exchange_code_for_token(code: str) -> dict:

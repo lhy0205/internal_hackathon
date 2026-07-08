@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Cookie, HTTPException, status
+from fastapi import APIRouter, Cookie, Header, HTTPException, status
 from fastapi.responses import JSONResponse
 
 from app.services.member_service import decode_access_token
@@ -6,11 +6,14 @@ from app.services.member_service import decode_access_token
 router = APIRouter(prefix="/api/auth", tags=["Auth"])
 
 
-def _get_user_from_cookie(access_token: str | None) -> dict:
-    if not access_token:
+def _decode_token(access_token: str | None, authorization: str | None) -> dict:
+    token = access_token
+    if not token and authorization and authorization.startswith("Bearer "):
+        token = authorization[7:]
+    if not token:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="로그인이 필요합니다.")
     try:
-        payload = decode_access_token(access_token)
+        payload = decode_access_token(token)
         return {
             "id": int(payload["sub"]),
             "email": payload["email"],
@@ -22,12 +25,15 @@ def _get_user_from_cookie(access_token: str | None) -> dict:
 
 
 @router.get("/me", summary="현재 로그인 유저 정보")
-def get_me(access_token: str | None = Cookie(default=None)):
-    return _get_user_from_cookie(access_token)
+def get_me(
+    access_token: str | None = Cookie(default=None),
+    authorization: str | None = Header(default=None),
+):
+    return _decode_token(access_token, authorization)
 
 
-@router.post("/logout", summary="로그아웃 - 쿠키 삭제")
+@router.post("/logout", summary="로그아웃")
 def logout():
     response = JSONResponse(content={"message": "로그아웃 완료"})
-    response.delete_cookie(key="access_token", samesite="none", secure=True)
+    response.delete_cookie(key="access_token")
     return response

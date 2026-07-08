@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 
@@ -11,10 +12,23 @@ import LibraryPage from './pages/LibraryPage';
 import SharePage from './pages/SharePage';
 import MyPage from './pages/MyPage';
 
+function TokenExtractor() {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+    if (token) {
+      localStorage.setItem('access_token', token);
+      window.history.replaceState({}, '', '/');
+    }
+  }, []);
+  return null;
+}
+
 export default function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <TokenExtractor />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/quest-select" element={<QuestSelectPage />} />

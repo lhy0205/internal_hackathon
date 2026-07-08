@@ -21,5 +21,6 @@ export function loginWithGoogle() {
 }
 
 export function logout() {
+  localStorage.removeItem('access_token');
   return api.post('/auth/logout');
 }

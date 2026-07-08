@@ -3,12 +3,14 @@ const BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
 export async function request(endpoint, options = {}) {
   const { method = 'GET', body, headers = {} } = options;
 
+  const token = localStorage.getItem('access_token');
   const config = {
     method,
     credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
       'ngrok-skip-browser-warning': 'true',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
       ...headers,
     },
   };
