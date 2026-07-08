@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageLayout from '../components/layout/PageLayout';
 import BottomNav from '../components/common/BottomNav';
 import ProgressBar from '../components/common/ProgressBar';
@@ -19,6 +20,7 @@ const RANK_LABELS = { F: '다컬 파문', A: '명작', S: '전설', B: '양작',
 function CardDetailModal({ itemId, onClose }) {
   const [detail, setDetail] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchLibraryItem(itemId)
@@ -61,7 +63,14 @@ function CardDetailModal({ itemId, onClose }) {
                 </div>
               )}
               {detail.savedAt && <p style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--text-secondary)', textAlign: 'right' }}>저장일 {detail.savedAt}</p>}
-              <button onClick={onClose} style={{ width: '100%', marginTop: 16, padding: 10, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 8, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: 12, cursor: 'pointer' }}>닫기</button>
+              <button
+                className="btn-primary btn-primary--red"
+                style={{ width: '100%', marginTop: 16, fontSize: 12 }}
+                onClick={() => navigate('/battle', { state: { excuseText: detail.text } })}
+              >
+                ▶ 이 변명으로 배틀
+              </button>
+              <button onClick={onClose} style={{ width: '100%', marginTop: 8, padding: 10, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: 8, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: 12, cursor: 'pointer' }}>닫기</button>
             </div>
           </>
         )}
