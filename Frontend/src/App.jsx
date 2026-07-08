@@ -18,7 +18,9 @@ function TokenExtractor() {
     const token = params.get('token');
     if (token) {
       localStorage.setItem('access_token', token);
-      window.history.replaceState({}, '', '/');
+      const returnTo = localStorage.getItem('pendingReturn') || '/';
+      localStorage.removeItem('pendingReturn');
+      window.history.replaceState({}, '', returnTo);
     }
   }, []);
   return null;

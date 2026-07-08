@@ -108,6 +108,7 @@ export default function SummonResultPage() {
   const handleSave = (card) => {
     if (!user) {
       localStorage.setItem('pendingSave', JSON.stringify({ type: 'card', data: card }));
+      localStorage.setItem('pendingReturn', '/library');
       loginWithGoogle();
       return;
     }

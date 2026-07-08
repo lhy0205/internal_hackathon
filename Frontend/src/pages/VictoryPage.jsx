@@ -45,6 +45,7 @@ export default function VictoryPage() {
         type: 'battle',
         data: { excuseText, success, suspicion, turns, defenseType },
       }));
+      localStorage.setItem('pendingReturn', '/library');
       loginWithGoogle();
       return;
     }
