@@ -40,7 +40,14 @@ export default function VictoryPage() {
   const isVictory = success;
 
   const handleSaveBattle = () => {
-    if (!user) { loginWithGoogle(); return; }
+    if (!user) {
+      localStorage.setItem('pendingSave', JSON.stringify({
+        type: 'battle',
+        data: { excuseText, success, suspicion, turns, defenseType },
+      }));
+      loginWithGoogle();
+      return;
+    }
     setSaveState('saving');
     saveBattleResult({ excuseText, success, suspicion, turns, defenseType })
       .then(() => setSaveState('saved'))
