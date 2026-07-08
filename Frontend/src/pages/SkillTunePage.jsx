@@ -83,8 +83,8 @@ export default function SkillTunePage() {
             onChange={(e) => setRisk(Number(e.target.value))}
           />
           <div className="skill-section__labels">
-            <span className="skill-section__label">젠틀</span>
-            <span className="skill-section__label">눈깔배뒤뿅</span>
+            <span className="skill-section__label">신뢰도 있음</span>
+            <span className="skill-section__label">신뢰도 없음</span>
           </div>
         </div>
 
