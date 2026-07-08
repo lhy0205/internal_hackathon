@@ -1,8 +1,8 @@
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import PageLayout from '../components/layout/PageLayout';
 import BottomNav from '../components/common/BottomNav';
 import StarRating from '../components/common/StarRating';
-import { shareExcuse } from '../api/user';
 import '../styles/share.css';
 
 const RANK_COLORS = { F: 'var(--red)', A: 'var(--purple)', S: 'var(--gold)', B: 'var(--cyan)', C: 'var(--lime)' };
@@ -11,21 +11,52 @@ export default function SharePage() {
   const navigate = useNavigate();
   const location = useLocation();
   const card = location.state?.card;
+  const [toast, setToast] = useState('');
 
   const rank = card?.rank || 'F';
   const stars = card?.stars || 1;
   const text = card?.text || '변명을 선택해주세요';
   const reaction = card?.reaction || '';
 
+  const shareUrl = window.location.origin;
+  const shareText = `[변명 RPG] ${rank} RANK 변명 카드\n"${text}"\n#변명RPG #GuildOfExcuses`;
+
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(''), 2500);
+  };
+
+  const copyToClipboard = (str) =>
+    navigator.clipboard?.writeText(str)
+      .then(() => showToast('클립보드에 복사됐습니다!'))
+      .catch(() => showToast('복사 실패. 직접 선택해 복사해주세요.'));
+
+  const nativeShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: '변명 RPG', text: shareText, url: shareUrl })
+        .catch(() => {});
+    } else {
+      copyToClipboard(`${shareText}\n${shareUrl}`);
+    }
+  };
+
   const handleShare = (platform) => {
-    shareExcuse({ excuseId: null, platform })
-      .then(() => alert(`${platform}(으)로 공유 완료!`))
-      .catch(() => alert(`${platform} 공유 기능은 백엔드 연동 후 활성화됩니다.`));
+    if (platform === '링크') return copyToClipboard(shareUrl);
+    if (platform === '저장') return copyToClipboard(shareText);
+    nativeShare();
   };
 
   return (
     <PageLayout title="전리품 공유" subtitle="SHARE · 변명 카드를 공유하라">
     <div className="share scanlines">
+      {toast && (
+        <div style={{
+          position: 'fixed', top: 20, left: '50%', transform: 'translateX(-50%)',
+          background: 'var(--cyan)', color: '#000', padding: '10px 20px',
+          borderRadius: 8, fontFamily: 'var(--font-mono)', fontSize: 12,
+          zIndex: 9999, whiteSpace: 'nowrap',
+        }}>{toast}</div>
+      )}
       <h1 className="share__title">전리품 공유</h1>
 
       <div className="trading-card">
