@@ -25,7 +25,7 @@ export default function Sidebar() {
   return (
     <aside className="sidebar">
       {/* Logo */}
-      <div className="sidebar__logo">
+      <div className="sidebar__logo" style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
         <span className="sidebar__logo-kr">변명</span>
         <span className="sidebar__logo-en">RPG</span>
       </div>

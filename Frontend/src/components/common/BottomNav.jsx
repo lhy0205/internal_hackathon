@@ -2,6 +2,16 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const NAV_ITEMS = [
   {
+    id: 'home',
+    label: '홈',
+    path: '/',
+    icon: (
+      <svg viewBox="0 0 24 24">
+        <path d="M3 12L12 3l9 9M5 10v9h4v-5h6v5h4v-9" />
+      </svg>
+    ),
+  },
+  {
     id: 'summon',
     label: '뽑기',
     path: '/quest-select',
@@ -52,9 +62,11 @@ export default function BottomNav() {
 
   const getActiveId = () => {
     const path = location.pathname;
+    if (path === '/') return 'home';
     if (path.includes('quest') || path.includes('skill') || path.includes('summon')) return 'summon';
     if (path.includes('library')) return 'library';
     if (path.includes('battle') || path.includes('victory')) return 'battle';
+    if (path.includes('my')) return 'my';
     return '';
   };
 
