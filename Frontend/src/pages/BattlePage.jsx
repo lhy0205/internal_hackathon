@@ -79,7 +79,7 @@ export default function BattlePage() {
         setSuspicion(newSuspicion);
         setUserInput('');
         if (turn >= 3 || newSuspicion <= 0) {
-          setTimeout(() => navigate('/victory', { state: { success: newSuspicion <= 0, turns: turn } }), 800);
+          setTimeout(() => navigate('/victory', { state: { success: newSuspicion <= 0, suspicion: newSuspicion, turns: turn } }), 800);
         } else {
           setTurn((t) => t + 1);
           setEnemyLine('진짜? 근데 아까 인스타 접속 기록 있던데?');
@@ -184,7 +184,7 @@ export default function BattlePage() {
         </div>
 
         <div className="battle__log">
-          <div className="battle__log-header">BATTLE LOG</div>
+          <div className="battle__log-header">적의 속마음</div>
           <div className="battle__log-body">
             <div className="battle__log-turns">
               {[1, 2, 3].map((t) => (
