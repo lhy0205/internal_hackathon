@@ -89,8 +89,8 @@ function SkillTuneInline({ tone, risk, setTone, setRisk, situation, setSituation
         <LevelBar level={risk} max={10} color="red" />
         <input type="range" className="skill-slider" min={1} max={10} value={risk} onChange={(e) => setRisk(Number(e.target.value))} />
         <div className="skill-section__labels">
-          <span className="skill-section__label">젠틀</span>
-          <span className="skill-section__label">눈깔배뒤뿅</span>
+          <span className="skill-section__label">신뢰도 없음</span>
+          <span className="skill-section__label">신뢰도 있음</span>
         </div>
       </div>
 
